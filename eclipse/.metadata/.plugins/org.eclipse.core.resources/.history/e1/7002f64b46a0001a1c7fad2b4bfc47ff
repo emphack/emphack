@@ -1,0 +1,20 @@
+package com.emphack.client;
+
+import com.emphack.client.ui.UIRenderer;
+
+public class Client {
+
+	public static String clientName = "EMPHACK";
+	public static String clientVersion = "Alpha-1";
+	
+	public static UIRenderer uiRenderer;
+	
+	public static void init() {
+		
+		uiRenderer = new UIRenderer();
+		
+	}
+	
+	p
+	
+}

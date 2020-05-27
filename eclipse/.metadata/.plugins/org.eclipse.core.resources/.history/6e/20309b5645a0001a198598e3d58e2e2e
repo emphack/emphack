@@ -1,0 +1,12 @@
+package com.emphack.client;
+
+public class Client {
+
+	public static String clientName = "EMPHACK";
+	public static String clientVersion = "Alpha-1";
+	
+	public static void init() {
+		
+	}
+	
+}

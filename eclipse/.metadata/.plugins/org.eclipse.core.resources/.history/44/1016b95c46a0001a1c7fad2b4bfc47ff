@@ -1,0 +1,11 @@
+package com.emphack.client.ui;
+
+import net.minecraft.client.gui.Gui;
+
+public class UIRenderer extends Gui {
+
+	public void Draw() {
+		
+	}
+	
+}
