@@ -520,6 +520,11 @@ public class Minecraft implements IThreadListener, ISnooperInfo
      */
     private void startGame() throws LWJGLException, IOException
     {
+    	
+    	// Added by AlexMunoz905 / EMPHACK
+    	Client.getInstance().init();
+    	// Ended the added
+    	
         this.gameSettings = new GameSettings(this, this.mcDataDir);
         this.field_191950_u = new CreativeSettings(this, this.mcDataDir);
         this.defaultResourcePacks.add(this.mcDefaultResourcePack);
@@ -606,7 +611,7 @@ public class Minecraft implements IThreadListener, ISnooperInfo
         this.ingameGUI = new GuiIngame(this);
 
         // Added by AlexMunoz905 / EMPHACK
-        Client.init();
+        Client.renderUI();
         // End of added
         
         if (this.serverName != null)
@@ -1124,6 +1129,10 @@ public class Minecraft implements IThreadListener, ISnooperInfo
     {
         try
         {
+        	// Added by AlexMunoz905 / EMPHACk
+        	Client.getInstance().shutdown();
+        	// Ended the added
+        	
             LOGGER.info("Stopping!");
 
             try
@@ -2517,6 +2526,9 @@ public class Minecraft implements IThreadListener, ISnooperInfo
         networkmanager.sendPacket(new C00Handshake(socketaddress.toString(), 0, EnumConnectionState.LOGIN));
         networkmanager.sendPacket(new CPacketLoginStart(this.getSession().getProfile()));
         this.myNetworkManager = networkmanager;
+    	// Added by AlexMunoz905 / EMPHACK
+        Client.getInstance().getDiscordRP().update("Playing Singleplayer", "In Game");
+        // End of added
     }
 
     /**

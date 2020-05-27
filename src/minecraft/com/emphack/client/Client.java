@@ -7,14 +7,35 @@ public class Client {
 	public static String clientName = "EMPHACK";
 	public static String clientVersion = "Alpha-1";
 	
+	public static String discordLogoHover = clientName + ": " + clientVersion;
+	
+	private static final Client INSTANCE = new Client();
+	public static final Client getInstance() { 
+		return INSTANCE; 
+	}
+	
+	private DiscordRP discordRP = new DiscordRP();
+	
 	public static UIRenderer uiRenderer;
 	
-	public static void init() {
+	public void init() {
+		discordRP.start();
+	}
+	
+	public static void renderUI() {
 		uiRenderer = new UIRenderer();
 	}
 	
 	public static void onGui() {
 		uiRenderer.Draw();
+	}
+	
+	public void shutdown() {
+		discordRP.shutdown();
+	}
+	
+	public DiscordRP getDiscordRP() {
+		return discordRP;
 	}
 	
 }

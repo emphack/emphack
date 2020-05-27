@@ -1,0 +1,19 @@
+[16:55:15] [Server thread/INFO]: Starting minecraft server version 1.12.2
+[16:55:15] [Server thread/INFO]: Loading properties
+[16:55:15] [Server thread/INFO]: Default game type: CREATIVE
+[16:55:15] [Server thread/INFO]: Generating keypair
+[16:55:15] [Server thread/INFO]: Starting Minecraft server on *:25565
+[16:55:15] [Server thread/INFO]: Using default channel type
+[16:55:15] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[16:55:15] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[16:55:15] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[16:55:15] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[16:55:15] [Server thread/INFO]: Preparing level "mcpworld"
+[16:55:15] [Server thread/INFO]: Loaded 488 advancements
+[16:55:15] [Server thread/WARN]: Unable to find spawn biome
+[16:55:18] [Server thread/INFO]: Preparing start region for level 0
+[16:55:19] [Server thread/INFO]: Preparing spawn area: 19%
+[16:55:20] [Server thread/INFO]: Preparing spawn area: 42%
+[16:55:21] [Server thread/INFO]: Preparing spawn area: 66%
+[16:55:22] [Server thread/INFO]: Preparing spawn area: 93%
+[16:55:22] [Server thread/INFO]: Done (6.759s)! For help, type "help" or "?"

@@ -1,0 +1,9 @@
+package com.emphack.client;
+
+public class FeaturedServers extends ServerData {
+
+	public FeaturedServers(String serverName, String serverIP) {
+		super(serverName, serverIP, false);
+	}
+	
+}

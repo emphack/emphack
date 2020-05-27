@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="net.minecraft.client.gui.Gui"/>
+<fullyQualifiedTypeName name="com.emphack.client.FeaturedServers"/>
+<fullyQualifiedTypeName name="net.arikia.dev.drpc.DiscordEventHandlers.Builder"/>
+<fullyQualifiedTypeName name="net.arikia.dev.drpc.callbacks.ReadyCallback"/>
+<fullyQualifiedTypeName name="net.arikia.dev.drpc.DiscordRPC"/>
+<fullyQualifiedTypeName name="net.arikia.dev.drpc.DiscordRichPresence"/>
+<fullyQualifiedTypeName name="net.arikia.dev.drpc.DiscordRichPresence.Builder"/>
 <fullyQualifiedTypeName name="com.emphack.client.Client"/>
 </qualifiedTypeNameHistroy>

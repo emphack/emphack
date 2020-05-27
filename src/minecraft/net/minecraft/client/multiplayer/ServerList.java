@@ -1,14 +1,17 @@
 package net.minecraft.client.multiplayer;
 
-import com.google.common.collect.Lists;
 import java.io.File;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.google.common.collect.Lists;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class ServerList
 {
@@ -52,8 +55,7 @@ public class ServerList
             LOGGER.error("Couldn't load server list", (Throwable)exception);
         }
     }
-
-    /**
+	/**
      * Runs getNBTCompound on each ServerData instance, puts everything into a "servers" NBT list and writes it to
      * servers.dat.
      */
@@ -62,10 +64,10 @@ public class ServerList
         try
         {
             NBTTagList nbttaglist = new NBTTagList();
-
+            
             for (ServerData serverdata : this.servers)
             {
-                nbttaglist.appendTag(serverdata.getNBTCompound());
+        		nbttaglist.appendTag(serverdata.getNBTCompound());
             }
 
             NBTTagCompound nbttagcompound = new NBTTagCompound();

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=Client/src&lt;net.minecraft.client{Minecraft.java[Minecraft" modifiers="1" timestamp="1590603612984"/>
 <typeInfo handle="=Client/src&lt;net.minecraft.client.gui{GuiIngame.java[GuiIngame" modifiers="1" timestamp="1590603599504"/>
+<typeInfo handle="=Client/src&lt;net.minecraft.client.gui{ServerListEntryNormal.java[ServerListEntryNormal" modifiers="1" timestamp="1590608665916"/>
+<typeInfo handle="=Client/src&lt;net.minecraft.client.multiplayer{ServerList.java[ServerList" modifiers="1" timestamp="1590608699653"/>
+<typeInfo handle="=Client/src&lt;net.minecraft.client{Minecraft.java[Minecraft" modifiers="1" timestamp="1590611416102"/>
+<typeInfo handle="=Client/src&lt;net.minecraft.client.gui{GuiMainMenu.java[GuiMainMenu" modifiers="1" timestamp="1590611217413"/>
+<typeInfo handle="=Client/src&lt;net.minecraft.client.gui{GuiMultiplayer.java[GuiMultiplayer" modifiers="1" timestamp="1590611260540"/>
+<typeInfo handle="=Client/src&lt;net.minecraft.client.multiplayer{GuiConnecting.java[GuiConnecting" modifiers="1" timestamp="1590611357782"/>
 </typeInfoHistroy>

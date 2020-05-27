@@ -1,5 +1,6 @@
 package net.minecraft.client.gui;
 
+import com.emphack.client.Client;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import java.io.IOException;
@@ -50,6 +51,10 @@ public class GuiMultiplayer extends GuiScreen
      */
     public void initGui()
     {
+    	// Added by AlexMunoz905 / EMPHACK
+    	Client.getInstance().getDiscordRP().update("Idle", "Multiplayer Menu");
+    	// End of added
+    	
         Keyboard.enableRepeatEvents(true);
         this.buttonList.clear();
 

@@ -1,5 +1,6 @@
 package net.minecraft.client.gui;
 
+import com.emphack.client.Client;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.Runnables;
@@ -215,6 +216,11 @@ public class GuiMainMenu extends GuiScreen
      */
     public void initGui()
     {
+    	
+    	// Added by AlexMunoz905 / EMPHACK
+    	Client.getInstance().getDiscordRP().update("Idle", "Main Menu");
+    	// End of added
+    	
         this.viewportTexture = new DynamicTexture(256, 256);
         this.backgroundTexture = this.mc.getTextureManager().getDynamicTextureLocation("background", this.viewportTexture);
         this.field_193978_M = this.fontRendererObj.getStringWidth("Copyright Mojang AB. Do not distribute!");
