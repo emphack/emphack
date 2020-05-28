@@ -1,0 +1,15 @@
+package com.emphack.client.modules;
+
+import org.lwjgl.input.Keyboard;
+
+import com.emphack.client.module.Category;
+import com.emphack.client.module.Module;
+
+public class KillAura extends Module {
+
+	public KillAura("", Category.COMBAT, Keyboard.KEY_R) {
+		super(name, category, description, keyCode);
+		// TODO Auto-generated constructor stub
+	}
+
+}

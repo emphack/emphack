@@ -1,0 +1,14 @@
+package com.emphack.client.modules;
+
+import org.lwjgl.input.Keyboard;
+
+import com.emphack.client.module.Category;
+import com.emphack.client.module.Module;
+
+public class KillAura extends Module {
+
+	public KillAura() {
+		super("Sprint", Category.MOVEMENT, Keyboard.KEY_V);
+	}
+
+}

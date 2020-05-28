@@ -1,0 +1,30 @@
+package com.emphack.cosmetics;
+
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+
+public class Cape implements LayerRenderer<AbstractClientPlayer>{
+
+	private RenderPlayer renderPlayer;
+
+	public Cape(RenderPlayer renderPlayer) {
+		this.renderPlayer = renderPlayer;
+	}
+
+	@Override
+	public void doRenderLayer(AbstractClientPlayer entitylivingbaseIn, float limbSwing, float limbSwingAmount,
+			float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		if (entitylivingbaseIn.getName().equals("DripTopia") && !entitylivingbaseIn.isInvisible()) {
+			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		}
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+}

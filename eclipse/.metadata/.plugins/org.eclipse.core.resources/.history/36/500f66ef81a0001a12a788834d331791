@@ -1,0 +1,52 @@
+package com.emphack.client.modules;
+
+import org.lwjgl.input.Keyboard;
+
+import com.emphack.client.module.Category;
+import com.emphack.client.module.Module;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
+
+public class KillAura extends Module {
+
+	private EntityLivingBase target;
+	private long current, last;
+	private int delay = 8;
+	private float yaw, pitch;
+	private boolean others;
+	
+	public KillAura() {
+		super("KillAura", Category.COMBAT, Keyboard.KEY_R);
+	}
+
+	@Override
+	public void onPreUpdate() {
+		super.onPreUpdate();
+		target = getClosest(mc.playerController.getBlockReachDistance());
+	}
+	
+	private EntityLivingBase getClosest(double range) {
+		double dist = range;
+		EntityLivingBase target = null;
+		for(Object object : mc.world.loadedEntityList) {
+			Entity entity = (Entity)object;
+			if(entity instanceof EntityLivingBase) {
+				EntityLivingBase player = (EntityLivingBase)entity;
+				if(canAttack(player)) {
+					if(!(player instanceof EntityMob) && (!(player instanceof EntityAnimal) || others) ) {
+						double currentDist = mc.player.getDistanceToEntity(player);
+						if (currentDist <= dist) {
+							dist = currentDist;
+							target = player;
+						}
+					}
+				}
+			}
+		}
+		
+		return target;
+	}
+}

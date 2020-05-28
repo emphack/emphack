@@ -1,0 +1,5 @@
+package com.emphack.client.module;
+
+public class ModuleManager {
+
+}

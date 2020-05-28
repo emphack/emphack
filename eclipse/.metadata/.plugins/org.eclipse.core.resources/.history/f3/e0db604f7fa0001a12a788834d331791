@@ -1,0 +1,5 @@
+package com.emphack.client.modules;
+
+public class KillAura extends Module {
+
+}

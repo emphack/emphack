@@ -1,0 +1,13 @@
+package com.emphack.client.module;
+
+import java.util.ArrayList;
+
+public class ModuleManager {
+	
+	public ArrayList<Module> moduleList = new ArrayList<Module>();
+	
+	public void init() {
+		
+	}
+	
+}

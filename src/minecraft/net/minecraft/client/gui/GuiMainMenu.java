@@ -1,9 +1,5 @@
 package net.minecraft.client.gui;
 
-import com.emphack.client.Client;
-import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
-import com.google.common.util.concurrent.Runnables;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
@@ -14,6 +10,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GLContext;
+import org.lwjgl.util.glu.Project;
+
+import com.emphack.client.Client;
+import com.emphack.client.login.GuiAltLogin;
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
+import com.google.common.util.concurrent.Runnables;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -35,13 +45,6 @@ import net.minecraft.world.storage.WorldInfo;
 import optifine.CustomPanorama;
 import optifine.CustomPanoramaProperties;
 import optifine.Reflector;
-
-import org.apache.commons.io.IOUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GLContext;
-import org.lwjgl.util.glu.Project;
 
 public class GuiMainMenu extends GuiScreen
 {
@@ -228,17 +231,9 @@ public class GuiMainMenu extends GuiScreen
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
 
-        if (calendar.get(2) + 1 == 12 && calendar.get(5) == 24)
+        if (true)
         {
-            this.splashText = "Merry X-mas!";
-        }
-        else if (calendar.get(2) + 1 == 1 && calendar.get(5) == 1)
-        {
-            this.splashText = "Happy new year!";
-        }
-        else if (calendar.get(2) + 1 == 10 && calendar.get(5) == 31)
-        {
-            this.splashText = "OOoooOOOoooo! Spooky!";
+            this.splashText = "EMPHACK";
         }
 
         int i = 24;
@@ -297,15 +292,17 @@ public class GuiMainMenu extends GuiScreen
         this.buttonList.add(new GuiButton(1, this.width / 2 - 100, p_73969_1_, I18n.format("menu.singleplayer")));
         this.buttonList.add(new GuiButton(2, this.width / 2 - 100, p_73969_1_ + p_73969_2_ * 1, I18n.format("menu.multiplayer")));
 
-        if (Reflector.GuiModList_Constructor.exists())
-        {
-            this.realmsButton = this.addButton(new GuiButton(14, this.width / 2 + 2, p_73969_1_ + p_73969_2_ * 2, 98, 20, I18n.format("menu.online").replace("Minecraft", "").trim()));
-            this.buttonList.add(this.modButton = new GuiButton(6, this.width / 2 - 100, p_73969_1_ + p_73969_2_ * 2, 98, 20, I18n.format("fml.menu.mods")));
-        }
-        else
-        {
-            this.realmsButton = this.addButton(new GuiButton(14, this.width / 2 - 100, p_73969_1_ + p_73969_2_ * 2, I18n.format("menu.online")));
-        }
+        // Commented by AlexMunoz905 / EMPHACK
+		/*
+		 * if (Reflector.GuiModList_Constructor.exists()) { this.realmsButton =
+		 * this.addButton(new GuiButton(14, this.width / 2 + 2, p_73969_1_ + p_73969_2_
+		 * * 2, 98, 20, I18n.format("menu.online").replace("Minecraft", "").trim()));
+		 * this.buttonList.add(this.modButton = new GuiButton(6, this.width / 2 - 100,
+		 * p_73969_1_ + p_73969_2_ * 2, 98, 20, I18n.format("fml.menu.mods"))); } else {
+		 * this.realmsButton = this.addButton(new GuiButton(14, this.width / 2 - 100,
+		 * p_73969_1_ + p_73969_2_ * 2, I18n.format("menu.online"))); }
+		 */
+        // End of added
     }
 
     /**
@@ -379,6 +376,11 @@ public class GuiMainMenu extends GuiScreen
                 this.mc.displayGuiScreen(new GuiYesNo(this, I18n.format("selectWorld.deleteQuestion"), "'" + worldinfo.getWorldName() + "' " + I18n.format("selectWorld.deleteWarning"), I18n.format("selectWorld.deleteButton"), I18n.format("gui.cancel"), 12));
             }
         }
+        
+        if(button.id == 500) {
+        	this.mc.displayGuiScreen(new GuiAltLogin(this));
+        }
+        
     }
 
     private void switchToRealms()
@@ -719,7 +721,10 @@ public class GuiMainMenu extends GuiScreen
             this.drawString(this.fontRendererObj, this.openGLWarning1, this.openGLWarningX1, this.openGLWarningY1, -1);
             this.drawString(this.fontRendererObj, this.openGLWarning2, (this.width - this.openGLWarning2Width) / 2, (this.buttonList.get(0)).yPosition - 12, -1);
         }
-
+        // Added by AlexMunoz905 / EMPHACK
+        this.buttonList.add(new GuiButton(500, this.width / 2 - 100, this.height / 4 + 48 + 24 * 2, "Login"));
+        // End of added
+        
         super.drawScreen(mouseX, mouseY, partialTicks);
 
         if (this.areRealmsNotificationsEnabled())

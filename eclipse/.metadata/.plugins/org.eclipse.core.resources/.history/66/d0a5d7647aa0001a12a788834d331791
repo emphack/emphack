@@ -1,0 +1,10 @@
+package com.emphack.client.module;
+
+public class Module {
+
+	private String name;
+	private int keyCode;
+	private String[] modes;
+	private String description;
+	
+}

@@ -271,7 +271,8 @@ public class Minecraft implements IThreadListener, ISnooperInfo
     public Entity pointedEntity;
     public ParticleManager effectRenderer;
     private SearchTreeManager field_193995_ae = new SearchTreeManager();
-    private final Session session;
+    // AlexMunoz905 made Session public from private and removed the final. (private final Session session;)
+    public Session session;
     private boolean isGamePaused;
     private float field_193996_ah;
 
@@ -2073,6 +2074,11 @@ public class Minecraft implements IThreadListener, ISnooperInfo
 
                 if (this.currentScreen == null)
                 {
+                	
+                	// Added by AlexMunoz905 / EMPHACK
+                	Client.onKeyPressed(i);
+                	// End of added
+                	
                     if (i == 1)
                     {
                         this.displayInGameMenu();

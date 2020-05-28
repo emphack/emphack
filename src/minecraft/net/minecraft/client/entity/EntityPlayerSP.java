@@ -2,6 +2,9 @@ package net.minecraft.client.entity;
 
 import java.util.List;
 import javax.annotation.Nullable;
+
+import com.emphack.client.Client;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ElytraSound;
@@ -249,6 +252,9 @@ public class EntityPlayerSP extends AbstractClientPlayer
             {
                 this.onUpdateWalkingPlayer();
             }
+            // Added by AlexMunoz905 / EMPHACK
+            Client.onPostUpdate();
+            // End of added
         }
     }
 
@@ -257,6 +263,9 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     private void onUpdateWalkingPlayer()
     {
+    	// Added by AlexMunoz905 / EMPHACK
+    	Client.onPreUpdate();
+    	// End of added
         boolean flag = this.isSprinting();
 
         if (flag != this.serverSprintState)
@@ -882,7 +891,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
         if (this.isCurrentViewEntity())
         {
             this.moveStrafing = this.movementInput.moveStrafe;
-            this.field_191988_bg = this.movementInput.field_192832_b;
+            this.field_191988_bg = this.movementInput.moveForward;
             this.isJumping = this.movementInput.jump;
             this.prevRenderArmYaw = this.renderArmYaw;
             this.prevRenderArmPitch = this.renderArmPitch;
@@ -967,14 +976,14 @@ public class EntityPlayerSP extends AbstractClientPlayer
         boolean flag = this.movementInput.jump;
         boolean flag1 = this.movementInput.sneak;
         float f = 0.8F;
-        boolean flag2 = this.movementInput.field_192832_b >= 0.8F;
+        boolean flag2 = this.movementInput.moveForward >= 0.8F;
         this.movementInput.updatePlayerMoveState();
         this.mc.func_193032_ao().func_193293_a(this.movementInput);
 
         if (this.isHandActive() && !this.isRiding())
         {
             this.movementInput.moveStrafe *= 0.2F;
-            this.movementInput.field_192832_b *= 0.2F;
+            this.movementInput.moveForward *= 0.2F;
             this.sprintToggleTimer = 0;
         }
 
@@ -994,7 +1003,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
         this.pushOutOfBlocks(this.posX + (double)this.width * 0.35D, axisalignedbb.minY + 0.5D, this.posZ + (double)this.width * 0.35D);
         boolean flag4 = (float)this.getFoodStats().getFoodLevel() > 6.0F || this.capabilities.allowFlying;
 
-        if (this.onGround && !flag1 && !flag2 && this.movementInput.field_192832_b >= 0.8F && !this.isSprinting() && flag4 && !this.isHandActive() && !this.isPotionActive(MobEffects.BLINDNESS))
+        if (this.onGround && !flag1 && !flag2 && this.movementInput.moveForward >= 0.8F && !this.isSprinting() && flag4 && !this.isHandActive() && !this.isPotionActive(MobEffects.BLINDNESS))
         {
             if (this.sprintToggleTimer <= 0 && !this.mc.gameSettings.keyBindSprint.isKeyDown())
             {
@@ -1006,12 +1015,12 @@ public class EntityPlayerSP extends AbstractClientPlayer
             }
         }
 
-        if (!this.isSprinting() && this.movementInput.field_192832_b >= 0.8F && flag4 && !this.isHandActive() && !this.isPotionActive(MobEffects.BLINDNESS) && this.mc.gameSettings.keyBindSprint.isKeyDown())
+        if (!this.isSprinting() && this.movementInput.moveForward >= 0.8F && flag4 && !this.isHandActive() && !this.isPotionActive(MobEffects.BLINDNESS) && this.mc.gameSettings.keyBindSprint.isKeyDown())
         {
             this.setSprinting(true);
         }
 
-        if (this.isSprinting() && (this.movementInput.field_192832_b < 0.8F || this.isCollidedHorizontally || !flag4))
+        if (this.isSprinting() && (this.movementInput.moveForward < 0.8F || this.isCollidedHorizontally || !flag4))
         {
             this.setSprinting(false);
         }
@@ -1058,7 +1067,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
             if (this.movementInput.sneak)
             {
                 this.movementInput.moveStrafe = (float)((double)this.movementInput.moveStrafe / 0.3D);
-                this.movementInput.field_192832_b = (float)((double)this.movementInput.field_192832_b / 0.3D);
+                this.movementInput.moveForward = (float)((double)this.movementInput.moveForward / 0.3D);
                 this.motionY -= (double)(this.capabilities.getFlySpeed() * 3.0F);
             }
 

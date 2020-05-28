@@ -1,0 +1,23 @@
+package com.emphack.client.module;
+
+public class Module {
+
+	private String name;	
+	private Category category;
+	private String description;
+	private int keyCode;
+	private String[] modes;
+	
+	public Module(String name, Category category) {
+		
+	}
+	
+	public Module(String name, Category category, String description) {
+		
+	}
+	
+	public Module(String name, Category category, int keyCode) {
+		
+	}
+	
+}

@@ -1,0 +1,29 @@
+package com.emphack.client.modules;
+
+import org.lwjgl.input.Keyboard;
+
+import com.emphack.client.module.Category;
+import com.emphack.client.module.Module;
+
+import net.minecraft.entity.EntityLivingBase;
+
+public class KillAura extends Module {
+
+	private EntityLivingBase target;
+	private long current, last;
+	private int delay = 8;
+	private float yaw, pitch;
+	private boolean others;
+	
+	public KillAura() {
+		super("KillAura", Category.COMBAT, Keyboard.KEY_R);
+	}
+
+	@Override
+	public void onPreUpdate() {
+		super.onPreUpdate();
+		if(mc.player.movementInput.moveForward > 0) {
+			mc.player.setSprinting(true);
+		}
+	}
+}

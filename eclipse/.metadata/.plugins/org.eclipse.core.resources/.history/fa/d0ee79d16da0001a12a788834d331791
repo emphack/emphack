@@ -1,0 +1,10 @@
+package com.emphack.cosmetics;
+
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+
+public class Cape implements LayerRenderer<AbstractClientPlayer>{
+
+	
+	
+}
